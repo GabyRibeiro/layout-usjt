@@ -1,0 +1,21 @@
+nav .btn {
+  display: block;
+}
+
+label.error {
+  color: #fff;
+  font-family: "Work Sans", Arial, sans-serif;
+  font-size: 12px;
+  background-color: #dc3545;
+  padding: 5px 10px;
+  width: 100%;
+  margin-top: 10px;
+} label.error.checked {
+  display: none !important;
+}
+
+select {
+  color: #000;
+} option {
+  color: #000;
+}
