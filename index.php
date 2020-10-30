@@ -1,4 +1,8 @@
-<?php include 'heads.php';?>
+<?php
+	$urlcanonical ="";
+	$sessao = "deslogado";
+	include 'heads.php';
+?>
 		<section class="home-slider owl-carousel" id="home">
 			<div class="slider-item" style="background-image:url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
 				<div class="overlay"></div>
@@ -125,7 +129,7 @@
 				</div>
 			</div>
 			<div class="container" id="formulario_doutor" style="display: none;">
-				<div class="row">
+ 				<div class="row">
 					<div class="col-md-12 py-5 pr-md-5">
 						<div class="heading-section heading-section-white wow fadeIn mb-5">
 							<span class="subheading">Cadastro de Profissionais</span>

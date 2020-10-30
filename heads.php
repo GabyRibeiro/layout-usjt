@@ -1,3 +1,4 @@
+<?php $dominio=$_SERVER['SERVER_NAME']; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 	<head>
@@ -14,6 +15,8 @@
 		<link rel="stylesheet" href="css/bootstrap-datepicker.css">
 		<link rel="stylesheet" href="css/jquery.timepicker.css">
 		<link rel="stylesheet" href="css/icomoon.css">
+		<link rel="stylesheet" href="css/full-calendar.min.css">
+		<link rel="stylesheet" href="css/flaticon.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/custom.css">
 	</head>
@@ -22,36 +25,35 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">Modal title</h5>
+						<h5 class="modal-title">Esqueci minha senha</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
 						<p>Confirme sua identidade</p>
-
-            <form action="#" method="POST" id="form_esqueci">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">#</span>
-                </div>
-                <input type="text" id="esqueci_cpf" name="esqueci_cpf" class="form-control formato cpf" placeholder="CPF*" aria-label="Email" aria-describedby="basic-addon1">
-                <span class="error error-message"></span>
-              </div>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">#</span>
-                </div>
-                <input type="text" id="esqueci_dtNasc" name="esqueci_dtNasc" class="form-control appointment_date" placeholder="Data de nascimento*" aria-label="Data" aria-describedby="basic-addon1">
-                <span class="error error-message"></span>
-              </div>
-            </form>
-
+						<form action="#" method="POST" id="form_esqueci">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">#</span>
+								</div>
+								<input type="text" id="esqueci_cpf" name="esqueci_cpf" class="form-control formato cpf" placeholder="CPF*" aria-label="Email" aria-describedby="basic-addon1">
+								<span class="error error-message"></span>
+							</div>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">#</span>
+								</div>
+								<input type="text" id="esqueci_dtNasc" name="esqueci_dtNasc" class="form-control appointment_date" placeholder="Data de nascimento*" aria-label="Data" aria-describedby="basic-addon1">
+								<span class="error error-message"></span>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary">Validar</button>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							</div>
+						</form>
 					</div>
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary">Validar</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-					</div>
+
 				</div>
 			</div>
 		</div>
@@ -60,6 +62,20 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				Menu
 				</button>
+
+				<?php if($sessao == 'logado') : ?>
+				<!-- Logado -->
+				<div class="collapse navbar-collapse" id="ftco-nav">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item"><a href="paciente.php" class="nav-link">Buscar</a></li>
+						<li class="nav-item"><a href="paciente-agendamentos.php" class="nav-link show-doutor">Meus agendamentos</a></li>
+					</ul>
+				</div>
+				<div class="d-flex align-items-center mb-0">
+					<a href="index.php" class="btn btn-secondary ml-3 py-2 px-3 show-paciente">Sair</a>
+				</div>
+				<?php  else: ?>
+				<!-- Deslogado -->
 				<div class="collapse navbar-collapse" id="ftco-nav">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active"><a href="#home" class="nav-link pl-0">Home</a></li>
@@ -67,7 +83,7 @@
 						<li class="nav-item"><a href="#section-counter" class="nav-link show-doutor">Trabalhe Conosco</a></li>
 					</ul>
 				</div>
-				<div class=" d-flex align-items-center mb-0">
+				<div class="d-flex align-items-center mb-0">
 					<div class="dropdown">
 						<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Login
@@ -79,6 +95,7 @@
 					</div>
 					<a href="#section-counter" class="btn btn-secondary ml-3 py-2 px-3 show-paciente">Marque sua consulta</a>
 				</div>
+				<?php endif?>
 			</div>
 		</nav>
 		<!-- END nav -->

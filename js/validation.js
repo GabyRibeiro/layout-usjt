@@ -565,7 +565,7 @@ $(document).ready(function () {
 			$(element).addClass("error-input");
 		},
 		submitHandler: function (form) {
-			alert('pronto');
+			window.location.href = "paciente.php";
 		},
 	});
 	// Form login Doutor
@@ -623,7 +623,7 @@ $(document).ready(function () {
 			$(element).addClass("error-input");
 		},
 		submitHandler: function (form) {
-			alert('pronto');
+			window.location.href = "doutor.php";
 		},
 	});
 
