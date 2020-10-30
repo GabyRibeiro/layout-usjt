@@ -47,7 +47,9 @@
 <script src="js/main.js"></script>
 <script src="js/jquery-validation.min.js"></script>
 <script src="js/jquery-masks.min.js"></script>
-<script src="js/full-calendar.min.js"></script>
+<script src="js/fullCalendar/main.min.js"></script>
+<script src="js/fullCalendar/interaction/main.min.js"></script>
+<script src="js/fullCalendar/locales/pt-br.js"></script>
 <script src="js/validation.js"></script>
 <script src="js/masks.js"></script>
 <script src="js/custom.js"></script>

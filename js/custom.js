@@ -6,10 +6,18 @@ document.addEventListener('DOMContentLoaded', function () {
   //Calendario para agendamento do paciente
 	var c1 = document.getElementById('paciente-agendar');
 	var paciente_agendar = new FullCalendar.Calendar(c1, {
+    editable: true,
 		initialView: 'timeGridWeek',
 		allDaySlot: false,
 		selectable: true,
 		height: 400,
+    events: [
+        {
+          title: 'Consulta',
+          start: '2020-10-29T10:00:00',
+          end: '2020-10-29T10:15:00'
+        }
+      ],
 		dateClick: function (info) {
 			//Quando clicar na data
 			alert('Clicked on: ' + info.dateStr);
@@ -17,6 +25,38 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	paciente_agendar.setOption('locale', 'pt-br');
 	paciente_agendar.render();
+
+
+
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  //Calendario para meus agendamentos do paciente
+  var c2 = document.getElementById('paciente-agendamentos');
+  var paciente_meus_agendamentos = new FullCalendar.Calendar(c2, {
+    editable: true,
+    height: 350,
+    initialView: 'listWeek',
+    events: [
+        {
+          title: 'Consulta 1',
+          start: '2020-10-29T10:00:00',
+          end: '2020-10-29T16:00:00'
+        },
+        {
+          title: 'Consulta 2',
+          start: '2020-10-28T12:00:00',
+          end: '2020-10-28T16:00:00'
+        },
+        {
+          title: 'Consulta 3',
+          start: '2020-10-30T15:00:00',
+          end: '2020-10-30T16:00:00'
+        }
+      ]
+  });
+  paciente_meus_agendamentos.setOption('locale', 'pt-br');
+  paciente_meus_agendamentos.render();
 });
 
 //Busca endereço pelo CEP
