@@ -12,6 +12,7 @@
 			<span class="subheading">Bem-vindo a Área do Paciente, onde você poderá ver seus agendamentos, histórico e resultados de exames.
 			Todo nosso relacionamento poderá ser feito de maneira fácil e rápida por aqui.</span>
 		</div>
+		<!-- Formulario de busca -->
 		<form action="#" method="POST" id="form_busca" class="appointment-form">
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
@@ -70,7 +71,7 @@
 	</div>
 </section>
 <section class="ftco-section ftco-no-pt " id="resultados-paciente">
-	<div class="container-fluid" id="resultados-paciente-busca" style="display: none;">
+	<div class="container-fluid wow animated fadeIn" id="resultados-paciente-busca" style="display: none;">
 		<h5 class="text-center mb-5">xx Resultados</h5>
 		<div class="row">
 			<div class="col-lg-7 col-md-7">
@@ -136,7 +137,7 @@
 		</div>
 	</div>
 	<div class="container-fluid hidden mt-5" id="resultados-paciente-agendamento">
-		<h5>Instruções</h5>
+		<h5>Instruções xxxxxxxxxxxxxxxxxxxxx</h5>
 		<div id='paciente-agendar'></div>
 	</div>
 </section>

@@ -13,7 +13,6 @@
 </section>
 <section class="ftco-section ftco-no-pt" id="">
 	<div class="container-fluid mt-5" id="">
-		<h5>Instruções</h5>
 		<div id='paciente-agendamentos'></div>
 	</div>
 </section>
