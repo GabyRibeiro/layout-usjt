@@ -1,34 +1,53 @@
 //Efeito wow ao rolar o site
 new WOW().init();
 
-//Config do calendario
-document.addEventListener('DOMContentLoaded', function () {
-  //Calendario para agendamento do paciente
-	var c1 = document.getElementById('paciente-agendar');
-	var paciente_agendar = new FullCalendar.Calendar(c1, {
-    editable: true,
-		initialView: 'timeGridWeek',
-		allDaySlot: false,
-		selectable: true,
-		height: 400,
-    events: [
-        {
-          title: 'Consulta',
-          start: '2020-10-29T10:00:00',
-          end: '2020-10-29T10:15:00'
-        }
-      ],
-		dateClick: function (info) {
-			//Quando clicar na data
-			alert('Clicked on: ' + info.dateStr);
-		}
-	});
-	paciente_agendar.setOption('locale', 'pt-br');
-	paciente_agendar.render();
+$('#agendar_horario_doutor').multiselect({
+          nonSelectedText: 'Selecionar horários*',
+           includeSelectAllOption: true,
+           selectAllName: 'Todos horários',
+           allSelectedText: 'Todos horários',
+           nSelectedText: 'horários',
+           buttonWidth: '100%',
+           buttonClass: 'form-control',
+           selectAllText: 'Selecionar todos'
+       });
 
+       $('#example-selectAll-visible').on('click', function() {
+           $('#example-selectAll').multiselect('selectAll', true);
+       });
+       $('#example-selectAll-all').on('click', function() {
+           $('#example-selectAll').multiselect('selectAll', false);
+       });
 
-
+$('.closeActual').click(function(event) {
+  $('.modal').modal('hide');
 });
+
+//Config do calendario
+// document.addEventListener('DOMContentLoaded', function () {
+  //Calendario para agendamento do paciente
+// 	var c1 = document.getElementById('paciente-agendar');
+// 	var paciente_agendar = new FullCalendar.Calendar(c1, {
+//     editable: true,
+// 		initialView: 'timeGridWeek',
+// 		allDaySlot: false,
+// 		selectable: true,
+// 		height: 400,
+//     events: [
+//         {
+//           title: 'Consulta',
+//           start: '2020-10-29T10:00:00',
+//           end: '2020-10-29T10:15:00'
+//         }
+//       ],
+// 		dateClick: function (info) {
+// 			//Quando clicar na data
+// 			alert('Clicked on: ' + info.dateStr);
+// 		}
+// 	});
+// 	paciente_agendar.setOption('locale', 'pt-br');
+// 	paciente_agendar.render();
+// });
 
 document.addEventListener('DOMContentLoaded', function () {
   //Calendario para meus agendamentos do paciente
@@ -50,14 +69,74 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
           title: 'Consulta 3',
+          start: '2020-11-12T15:00:00',
+          end: '2020-11-12T16:00:00'
+        }
+      ],
+      eventClick: function(info) {
+   alert('Event: ' + info.event.title);
+
+   // change the border color just for fun
+   info.el.style.borderColor = 'red';
+ }
+  });
+  paciente_meus_agendamentos.setOption('locale', 'pt-br');
+  paciente_meus_agendamentos.render();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  //Calendario para meus agendamentos do doutor
+  var c2 = document.getElementById('doutor-agendamentos');
+  var doutor_meus_agendamentos = new FullCalendar.Calendar(c2, {
+    editable: true,
+    height: 350,
+    initialView: 'listWeek',
+    events: [
+        {
+          title: 'Consulta 1',
+          start: '2020-10-29T10:00:00',
+          end: '2020-10-29T16:00:00'
+        },
+        {
+          title: 'Consulta 2',
+          start: '2020-10-28T12:00:00',
+          end: '2020-10-28T16:00:00'
+        },
+        {
+          title: 'Consulta 3',
           start: '2020-10-30T15:00:00',
           end: '2020-10-30T16:00:00'
         }
       ]
   });
-  paciente_meus_agendamentos.setOption('locale', 'pt-br');
-  paciente_meus_agendamentos.render();
+  doutor_meus_agendamentos.setOption('locale', 'pt-br');
+  doutor_meus_agendamentos.render();
 });
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   //Calendario para agenda do doutor
+// 	var c1 = document.getElementById('doutor-agendar');
+// 	var doutor_agendar = new FullCalendar.Calendar(c1, {
+//     editable: true,
+// 		initialView: 'timeGridWeek',
+// 		allDaySlot: false,
+// 		selectable: true,
+// 		height: 400,
+//     events: [
+//         {
+//           title: 'Consulta',
+//           start: '2020-10-29T10:00:00',
+//           end: '2020-10-29T10:15:00'
+//         }
+//       ],
+// 		dateClick: function (info) {
+// 			//Quando clicar na data
+// 			alert('Clicked on: ' + info.dateStr);
+// 		}
+// 	});
+// 	doutor_agendar.setOption('locale', 'pt-br');
+// 	doutor_agendar.render();
+// });
 
 //Busca endereço pelo CEP
 function limpa_formulário_cep() {
@@ -117,12 +196,6 @@ $("#paciente_cep").blur(function () {
 		limpa_formulário_cep();
 	}
 });
-
-// Mostra os resultados das buscas
-$(".buscar").click(function () {
-	$('#resultados-paciente-busca').show();
-});
-
 
 // Mostra o calendário quanto clicar em Agendar
 $(".agendar").click(function () {

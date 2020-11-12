@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="css/flaticon.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="css/multiSelect/bootstrap-multiselect.min.css" type="text/css"/>
 	</head>
 	<body>
 		<div class="modal"  id="esqueci_senha" tabindex="-1" role="dialog">
@@ -63,7 +64,7 @@
 				Menu
 				</button>
 
-				<?php if($sessao == 'logado') : ?>
+				<?php if($sessao='paciente-logado') : ?>
 				<!-- Logado -->
 				<div class="collapse navbar-collapse" id="ftco-nav">
 					<ul class="navbar-nav mr-auto">
@@ -74,6 +75,18 @@
 				<div class="d-flex align-items-center mb-0">
 					<a href="index.php" class="btn btn-secondary ml-3 py-2 px-3 show-paciente">Sair</a>
 				</div>
+
+			<?php  elseif( $sessao='doutor-logado' ): ?>
+					<!-- Logado DOUTOR -->
+					<div class="collapse navbar-collapse" id="ftco-nav">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item"><a href="doutor.php" class="nav-link">Minhas consultas</a></li>
+							<li class="nav-item"><a href="paciente-agendamentos.php" class="nav-link show-doutor">Cadastrar agenda</a></li>
+						</ul>
+					</div>
+					<div class="d-flex align-items-center mb-0">
+						<a href="index.php" class="btn btn-secondary ml-3 py-2 px-3 show-paciente">Sair</a>
+					</div>
 				<?php  else: ?>
 				<!-- Deslogado -->
 				<div class="collapse navbar-collapse" id="ftco-nav">
@@ -96,6 +109,8 @@
 					<a href="#section-counter" class="btn btn-secondary ml-3 py-2 px-3 show-paciente">Marque sua consulta</a>
 				</div>
 				<?php endif?>
+
+
 			</div>
 		</nav>
 		<!-- END nav -->

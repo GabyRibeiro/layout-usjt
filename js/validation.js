@@ -687,4 +687,186 @@ $(document).ready(function () {
 			alert('pronto');
 		},
 	});
+
+	// Form Buscar Doutor
+	var validator = $("#form_busca_paciente").validate({
+		onkeyup: false,
+		ignore: [],
+		onfocusout: function (element) {
+			$(element).valid();
+		},
+		rules: {
+			busca_especialidade: {
+				required: true
+			},
+			busca_dtConsulta: {
+				required: true
+			},
+			busca_horario_paciente: {
+				required: true
+			},
+			busca_ordenacao_paciente: {
+				required: true
+			}
+		},
+		messages: {
+			busca_especialidade: {
+				required: "Campo obrigatório"
+			},
+			busca_dtConsulta: {
+				required: "Campo obrigatório"
+			},
+			busca_horario_paciente: {
+				required: "Campo obrigatório"
+			},
+			busca_ordenacao_paciente: {
+				required: "Campo obrigatório"
+			}
+		},
+		errorPlacement: function (error, element) {
+			if (element.is(":radio")) error.appendTo(element.parent());
+			else if (element.is(":checkbox")) error.appendTo(element.parent());
+			else error.insertAfter(element.next());
+		},
+		invalidHandler: function (form, validator) {
+			var errors = validator.numberOfInvalids();
+			if (errors) {
+				$("span.error").show();
+				$("span.error").css({
+					width: "100%!important"
+				});
+			}
+		},
+		success: function (label, element) {
+			// set   as text for IE
+			if (val_CadastroIniciado == "") {
+				val_CadastroIniciado = "0"; //GravarGA('CadastroPessoal', 'iniciado');
+			}
+			label.html(" ").addClass("checked");
+			$(element).removeClass("error-input");
+		},
+		highlight: function (element, errorClass) {
+			$(element)
+				.parent()
+				.find("." + errorClass)
+				.removeClass("checked");
+			$(element).addClass("error-input");
+		},
+		submitHandler: function (form) {
+			// Mostra os resultados das buscas
+			$(".buscar").click(function () {
+				$('#resultados-paciente-busca').show();
+			});
+		},
+	});
+
+	// Form Localidade Doutor
+	var validator = $("#form_localidade").validate({
+		onkeyup: false,
+		ignore: [],
+		onfocusout: function (element) {
+			$(element).valid();
+		},
+		rules: {
+			doutor_localidade: {
+				required: true
+			}
+		},
+		messages: {
+			doutor_localidade: {
+				required: "Campo obrigatório"
+			}
+		},
+		errorPlacement: function (error, element) {
+			if (element.is(":radio")) error.appendTo(element.parent());
+			else if (element.is(":checkbox")) error.appendTo(element.parent());
+			else error.insertAfter(element.next());
+		},
+		invalidHandler: function (form, validator) {
+			var errors = validator.numberOfInvalids();
+			if (errors) {
+				$("span.error").show();
+				$("span.error").css({
+					width: "100%!important"
+				});
+			}
+		},
+		success: function (label, element) {
+			// set   as text for IE
+			if (val_CadastroIniciado == "") {
+				val_CadastroIniciado = "0"; //GravarGA('CadastroPessoal', 'iniciado');
+			}
+			label.html(" ").addClass("checked");
+			$(element).removeClass("error-input");
+		},
+		highlight: function (element, errorClass) {
+			$(element)
+				.parent()
+				.find("." + errorClass)
+				.removeClass("checked");
+			$(element).addClass("error-input");
+		},
+		submitHandler: function (form) {
+			$(".localidade button").click(function () {
+				$('.dados-agendamento').show();
+			});
+		},
+	});
+
+	// Form Agendar Doutor
+	var validator = $("#form_agendar_doutor").validate({
+		onkeyup: false,
+		ignore: [],
+		onfocusout: function (element) {
+			$(element).valid();
+		},
+		rules: {
+			agendar_doutor_dtConsulta: {
+				required: true
+			},
+			agendar_horario_doutor: {
+				required: true
+			}
+		},
+		messages: {
+			agendar_doutor_dtConsulta: {
+				required: "Campo obrigatório"
+			},
+			agendar_horario_doutor: {
+				required: "Campo obrigatório"
+			}
+		},
+		errorPlacement: function (error, element) {
+			if (element.is(":radio")) error.appendTo(element.parent());
+			else if (element.is(":checkbox")) error.appendTo(element.parent());
+			else error.insertAfter(element.next());
+		},
+		invalidHandler: function (form, validator) {
+			var errors = validator.numberOfInvalids();
+			if (errors) {
+				$("span.error").show();
+				$("span.error").css({
+					width: "100%!important"
+				});
+			}
+		},
+		success: function (label, element) {
+			// set   as text for IE
+			if (val_CadastroIniciado == "") {
+				val_CadastroIniciado = "0"; //GravarGA('CadastroPessoal', 'iniciado');
+			}
+			label.html(" ").addClass("checked");
+			$(element).removeClass("error-input");
+		},
+		highlight: function (element, errorClass) {
+			$(element)
+				.parent()
+				.find("." + errorClass)
+				.removeClass("checked");
+			$(element).addClass("error-input");
+		},
+		submitHandler: function (form) {
+			$('#confirmar_agendamento').modal();
+		},
+	});
 });
