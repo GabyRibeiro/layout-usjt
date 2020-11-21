@@ -15,10 +15,23 @@
 						<p>Campos com (*) são obrigatórios</p>
 					</div>
 					<form action="#" method="POST" id="form_alterar_doutor" class="appointment-form wow fadeIn">
-						<div class="form-group">
-							<input type="file" class="form-control" placeholder="Selecione sua foto*" id="doutor_alterar_img" name="doutor_alterar_img">
-							<span class="error error-message"></span>
+
+
+						<div class="row">
+							<div class="col-md-8">
+								<div class="form-group">
+									<input type="file" class="form-control" placeholder="Selecione sua foto*" id="doutor_alterar_img" name="doutor_alterar_img"  onchange="loadFile(event)">
+									<span class="error error-message"></span>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<img id="preview"/>
+							</div>
 						</div>
+
+
+
 						<div class="d-md-flex">
 							<div class="form-group">
 								<input type="text" class="form-control apenas-letra" placeholder="Nome completo*" id="doutor_alterar_nome" name="doutor_alterar_nome">

@@ -23,6 +23,22 @@ $('.closeActual').click(function(event) {
   $('.modal').modal('hide');
 });
 
+var loadFile = function(event) {
+    var preview = document.getElementById('preview');
+    preview.src = URL.createObjectURL(event.target.files[0]);
+    preview.onload = function() {
+      URL.revokeObjectURL(preview.src)
+    }
+  };
+
+  var loadFile2 = function(event) {
+      var preview = document.getElementById('preview2');
+      preview.src = URL.createObjectURL(event.target.files[0]);
+      preview.onload = function() {
+        URL.revokeObjectURL(preview.src)
+      }
+    };
+
 //Config do calendario
 // document.addEventListener('DOMContentLoaded', function () {
   //Calendario para agendamento do paciente

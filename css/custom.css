@@ -8,6 +8,11 @@ nav .btn {
     font-weight: 600;
 }
 
+#preview, #preview2 {
+  width: 100%;
+  border-radius: 5px;
+}
+
 label.error {
   color: #fff;
   font-family: "Work Sans", Arial, sans-serif;
