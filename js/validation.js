@@ -869,4 +869,282 @@ $(document).ready(function () {
 			$('#confirmar_agendamento').modal();
 		},
 	});
+
+
+	// Form alterar paciente
+	var validator = $("#form_alterar_paciente").validate({
+	  onkeyup: false,
+	  ignore: [],
+	  onfocusout: function (element) {
+	    $(element).valid();
+	  },
+	  rules: {
+	    paciente_alterar_nome: {
+	      required: true,
+	      minlength: 3
+	    },
+	    paciente_alterar_convenio: {
+	      required: true
+	    },
+	    paciente_alterar_sexo: {
+	      required: true
+	    },
+	    paciente_alterar_dtNasc: {
+	      required: true,
+	      dateBR: true,
+	      minlength: 8,
+	      minAge: 14,
+	      anoMin: true
+	    },
+	    paciente_alterar_tel: {
+	      required: true,
+	      minlength: 10,
+	      telefone: "GERAL"
+	    },
+	    paciente_alterar_cep: {
+	      required: true,
+	      minlength: 8
+	    },
+	    paciente_alterar_endereco: {
+	      required: true,
+	      minlength: 3
+	    },
+	    paciente_alterar_bairro: {
+	      required: true,
+	      minlength: 3
+	    },
+	    paciente_alterar_cidade: {
+	      required: true,
+	      minlength: 3
+	    },
+	    paciente_alterar_uf: {
+	      required: true
+	    },
+	    paciente_alterar_numero: {
+	      required: true,
+	      minlength: 1
+	    }
+	  },
+	  messages: {
+	    paciente_alterar_nome: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 3 caracteres"
+	    },
+	    paciente_alterar_convenio: {
+	      required: "Campo obrigatório"
+	    },
+	    paciente_alterar_sexo: {
+	      required: "Campo obrigatório"
+	    },
+	    paciente_alterar_dtNasc: {
+	      required: "Campo obrigatório",
+	      dateBR: "Data inválida",
+	      minlength: "Minímo 8 caracteres",
+	      minAge: "Apenas maiores de 14 anos",
+	      anoMin: "Data inválida"
+	    },
+	    paciente_alterar_tel: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 10 digítos",
+	      telefone: "Telefone inválido"
+	    },
+	    paciente_alterar_cep: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 8 caracteres"
+	    },
+	    paciente_alterar_endereco: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 3 caracteres"
+	    },
+	    paciente_alterar_bairro: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 3 caracteres"
+	    },
+	    paciente_alterar_cidade: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 3 caracteres"
+	    },
+	    paciente_alterar_uf: {
+	      required: "Campo obrigatório"
+	    },
+	    paciente_alterar_numero: {
+	      required: "Campo obrigatório",
+	      minlength: "Número inválido"
+	    }
+	  },
+	  errorPlacement: function (error, element) {
+	    if (element.is(":radio")) error.appendTo(element.parent());
+	    else if (element.is(":checkbox")) error.appendTo(element.parent());
+	    else error.insertAfter(element.next());
+	  },
+	  invalidHandler: function (form, validator) {
+	    var errors = validator.numberOfInvalids();
+	    if (errors) {
+	      $("span.error").show();
+	      $("span.error").css({
+	        width: "100%!important"
+	      });
+	    }
+	  },
+	  success: function (label, element) {
+	    // set   as text for IE
+	    if (val_CadastroIniciado == "") {
+	      val_CadastroIniciado = "0"; //GravarGA('CadastroPessoal', 'iniciado');
+	    }
+	    label.html(" ").addClass("checked");
+	    $(element).removeClass("error-input");
+	  },
+	  highlight: function (element, errorClass) {
+	    $(element)
+	      .parent()
+	      .find("." + errorClass)
+	      .removeClass("checked");
+	    $(element).addClass("error-input");
+	  },
+	  submitHandler: function (form) {
+	    alert('pronto');
+	  },
+	});
+
+	// Form alterar doutor
+	var validator = $("#form_doutor").validate({
+	  onkeyup: false,
+	  ignore: [],
+	  onfocusout: function (element) {
+	    $(element).valid();
+	  },
+	  rules: {
+	    doutor_alterar_nome: {
+	      required: true,
+	      minlength: 3
+	    },
+	    doutor_alterar_especialidade: {
+	      required: true
+	    },
+	    doutor_alterar_doc: {
+	      required: true
+	    },
+	    doutor_alterar_sexo: {
+	      required: true
+	    },
+	    doutor_alterar_dtNasc: {
+	      required: true,
+	      dateBR: true,
+	      minlength: 8,
+	      minAge: 14,
+	      anoMin: true
+	    },
+	    doutor_alterar_tel: {
+	      required: true,
+	      minlength: 10,
+	      telefone: "GERAL"
+	    },
+	    doutor_alterar_cep: {
+	      required: true,
+	      minlength: 8
+	    },
+	    doutor_alterar_endereco: {
+	      required: true,
+	      minlength: 3
+	    },
+	    doutor_alterar_bairro: {
+	      required: true,
+	      minlength: 3
+	    },
+	    doutor_alterar_cidade: {
+	      required: true,
+	      minlength: 3
+	    },
+	    doutor_alterar_uf: {
+	      required: true
+	    },
+	    doutor_alterar_numero: {
+	      required: true,
+	      minlength: 1
+	    }
+	  },
+	  messages: {
+	    doutor_alterar_nome: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 3 caracteres"
+	    },
+	    doutor_alterar_especialidade: {
+	      required: "Campo obrigatório"
+	    },
+	    doutor_alterar_doc: {
+	      required: "Campo obrigatório"
+	    },
+	    doutor_alterar_sexo: {
+	      required: "Campo obrigatório"
+	    },
+	    doutor_alterar_dtNasc: {
+	      required: "Campo obrigatório",
+	      dateBR: "Data inválida",
+	      minlength: "Minímo 8 caracteres",
+	      minAge: "Apenas maiores de 14 anos",
+	      anoMin: "Data inválida"
+	    },
+	    doutor_alterar_tel: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 10 digítos",
+	      telefone: "Telefone inválido"
+	    },
+	    doutor_alterar_cep: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 8 caracteres"
+	    },
+	    doutor_alterar_endereco: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 3 caracteres"
+	    },
+	    doutor_alterar_bairro: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 3 caracteres"
+	    },
+	    doutor_alterar_cidade: {
+	      required: "Campo obrigatório",
+	      minlength: "Minímo 3 caracteres"
+	    },
+	    doutor_alterar_uf: {
+	      required: "Campo obrigatório"
+	    },
+	    doutor_alterar_numero: {
+	      required: "Campo obrigatório",
+	      minlength: "Número inválido"
+	    }
+	  },
+	  errorPlacement: function (error, element) {
+	    if (element.is(":radio")) error.appendTo(element.parent());
+	    else if (element.is(":checkbox")) error.appendTo(element.parent());
+	    else error.insertAfter(element.next());
+	  },
+	  invalidHandler: function (form, validator) {
+	    var errors = validator.numberOfInvalids();
+	    if (errors) {
+	      $("span.error").show();
+	      $("span.error").css({
+	        width: "100%!important"
+	      });
+	    }
+	  },
+	  success: function (label, element) {
+	    // set   as text for IE
+	    if (val_CadastroIniciado == "") {
+	      val_CadastroIniciado = "0"; //GravarGA('CadastroPessoal', 'iniciado');
+	    }
+	    label.html(" ").addClass("checked");
+	    $(element).removeClass("error-input");
+	  },
+	  highlight: function (element, errorClass) {
+	    $(element)
+	      .parent()
+	      .find("." + errorClass)
+	      .removeClass("checked");
+	    $(element).addClass("error-input");
+	  },
+	  submitHandler: function (form) {
+	    alert('pronto');
+	  },
+	});
+
 });
