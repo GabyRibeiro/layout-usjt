@@ -920,6 +920,9 @@ $(document).ready(function () {
 	    paciente_alterar_uf: {
 	      required: true
 	    },
+			paciente_alterar_img: {
+	      required: true
+	    },
 	    paciente_alterar_numero: {
 	      required: true,
 	      minlength: 1
@@ -964,6 +967,9 @@ $(document).ready(function () {
 	      required: "Campo obrigatório",
 	      minlength: "Minímo 3 caracteres"
 	    },
+			paciente_alterar_img: {
+	      required: "Campo obrigatório"
+	    },
 	    paciente_alterar_uf: {
 	      required: "Campo obrigatório"
 	    },
@@ -1007,7 +1013,7 @@ $(document).ready(function () {
 	});
 
 	// Form alterar doutor
-	var validator = $("#form_doutor").validate({
+	var validator = $("#form_alterar_doutor").validate({
 	  onkeyup: false,
 	  ignore: [],
 	  onfocusout: function (element) {
@@ -1019,6 +1025,9 @@ $(document).ready(function () {
 	      minlength: 3
 	    },
 	    doutor_alterar_especialidade: {
+	      required: true
+	    },
+			doutor_alterar_img: {
 	      required: true
 	    },
 	    doutor_alterar_doc: {
@@ -1075,6 +1084,9 @@ $(document).ready(function () {
 	      required: "Campo obrigatório"
 	    },
 	    doutor_alterar_sexo: {
+	      required: "Campo obrigatório"
+	    },
+			doutor_alterar_img: {
 	      required: "Campo obrigatório"
 	    },
 	    doutor_alterar_dtNasc: {
